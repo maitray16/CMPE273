@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Geolocation</title>
+</head>
+<body>
+
+<h3>Click to know your location</h3>
+<button onclick = getLocation() >Click Me </button>
+
+<p id="result"></p>
+
+<script>
+
+function getLocation()
+{
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(showLocation, showIssue);
+    } 
+    else
+    {
+       document.getElementById("result").innerHTML  = "Geolocation is not supported";
+    }
+}
+
+function showLocation(location)
+{
+	var lat_coordinates = location.coords.latitude;
+	var long_coordinates = location.coords.longitude;
+	document.getElementById("result").innerHTML = "Latitude : " + lat_coordinates + " , " 
+												+ " Longitude : " + long_coordinates ;
+}
+
+function showIssue(issue) 
+{
+	var res = document.getElementById("res");
+	switch(issue.code)
+    {
+        case issue.PERMISSION_DENIED: 
+        	 res.innerHTML = "Permission Denied"
+             break;
+        
+        case issue.POSITION_UNAVAILABLE:
+             res.innerHTML = "Location Unavailable"
+             break;
+             
+        case issue.UNKNOWN_ERROR:
+             res.innerHTML = "Unknown Error"
+             break;
+             
+        case issue.TIMEOUT:
+        	 res.innerHTML = "Request Timeout"
+        	 break;
+    }
+}
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Arrays</title>
+</head>
+<body>
+
+<p>//Array is used to store multiple values</p>
+
+<h3>Schedular</h3>
+
+Enter class code : <input id="user_value" type="text">
+<br>
+<br>
+<button onclick="add_entry()">Add Classes</button>
+<button onclick="delete_entry()">Delete Classes</button>
+<button onclick="total_entry()">Total Classes</button>
+<button onclick="sort_class()">Sort Classes</button>
+
+<p id="result">
+
+<script>
+
+var subject_list = [];
+function add_entry()
+{
+	var x = document.getElementById("user_value").value;
+	subject_list.push(x);
+	document.getElementById("result").innerHTML = x + " Added";
+}
+
+function delete_entry()
+{
+	var y = document.getElementById("user_value").value;
+	subject_list.pop(y);
+	document.getElementById("result").innerHTML = y + " Deleted";
+}
+
+function total_entry()
+{
+	document.getElementById("result").innerHTML = subject_list;	
+}
+
+function sort_class()
+{
+	document.getElementById("result").innerHTML = subject_list.sort(function(a, b){return a-b});
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Input Type</title>
+</head>
+<body>
+
+<h3>Enter your personal information - </h3><br>
+Enter your name : <input type="text" id="name"><br><br>
+Enter your password : <input type="password" id="pass"><br><br>
+Enter your age : <input type="text" id="age">
+
+<p>Gender</p>
+<select id="gender_menu" size="2">
+	<option value="1">Female</option>	
+	<option value="2">Male</option>	
+</select>
+<br><br>
+
+<button onclick="save()">SAVE</button>
+
+<p id="user_entry"></p>
+
+<script>
+
+function save()
+{
+	var user_information = [];
+	var user_name, user_pass, user_age, user_gender;
+	user_name = document.getElementById("name").value;
+	user_pass = document.getElementById("pass").value;
+	user_age = document.getElementById("age").value;
+	user_gender = document.getElementById("gender_menu").value;
+
+	if(user_gender == "1")
+		{
+			user_gender = "female";
+		}
+	else
+		{
+			user_gender = "male";
+		}
+	
+	user_information.push(user_name);
+	user_information.push(user_pass);
+	user_information.push(user_age);
+	user_information.push(user_gender);
+	
+	document.getElementById("user_entry").innerHTML = "USER INFORMATION - " + user_information;
+	
+	
+	
+}
+</script>
+ 
+</body>
+</html>

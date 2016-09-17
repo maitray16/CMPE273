@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- Displaying multiple properties of an object - ME -->
+<title>Javascript Object Example</title>
+</head>
+<body>
+
+<p>Objects can be any real item and can have multiple properties that are related to them.</p>
+<p>I can consider myself as an object as well</p>
+<p>Choose options below to see my properties</p>
+
+<input type="radio" id="my_name">&nbsp Show my name <br>
+<input type="radio" id="my_address">&nbsp Show my address <br>
+<input type="radio" id="my_major">&nbsp Show my major <br>
+<input type="radio" id="my_status">&nbsp Show my assignment status <br>
+<br>
+
+<button onclick = "my_data()">GO</button>
+
+<p id="disp_name"></p>
+<p id="disp_address"></p>
+<p id="disp_major"></p>
+<p id="disp_status"></p>
+
+<script>
+function my_data()
+{
+	if(document.getElementById("my_name").checked)
+		{
+			document.getElementById("disp_name").innerHTML = "My name is Maitray Shah";
+		}
+	if(document.getElementById("my_address").checked)
+		{
+			document.getElementById("disp_address").innerHTML = "My address is XYZ Street";
+		}
+	if(document.getElementById("my_major").checked)
+		{
+			document.getElementById("disp_major").innerHTML = "My major is Software Engineering";
+		}
+	if(document.getElementById("my_status").checked)
+		{
+			document.getElementById("disp_status").innerHTML = "Hopefully will be done by due date";
+		}
+	}
+</script>
+</body>
+</html>

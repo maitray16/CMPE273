@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Type Conversion</title>
+</head>
+<body>
+<p> //<i>Type conversions are used to convert values from one data type to another</i>
+<br><br>
+<p> Examples of different type conversions</p>
+<p> Convert Number to String</p>
+<button onclick="convert1()">CONVERT</button>
+<p id="result1"></p> 
+
+<p> Convert Date to String</p>
+<button onclick="convert2()">CONVERT</button>
+<p id="result2"></p> 
+
+<p> Convert String to Number</p>
+<button onclick="convert3()">CONVERT</button>
+<p id="result3"></p> 
+
+<script>
+
+function convert1()
+{
+	var data1 = 12345;
+	document.getElementById("result1").innerHTML = String(data1) + " , " + typeof(String(data1));
+}
+
+function convert2()
+{
+	var data2 = new Date();
+	document.getElementById("result2").innerHTML = String(data2.getDate());
+}
+
+function convert3()
+{
+	document.getElementById("result3").innerHTML = Number("10") + Number("20") ;
+}
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+// Multiple Event actions
+<title>Javascript Events</title>
+</head>
+<body>
+
+<p>This examples demonstrates multiple events</p>
+
+<button onclick="this.innerHTML = Date()">Click to know time</button>
+<br>
+<br>
+<img id="photo" onmouseover = big(this) onmouseout = small(this)
+		border="0" src="batman.jpg" alt="bat" width="128" height="128">
+
+
+<script>
+
+function big(y)
+{
+	y.style.height = "256px";
+	y.style.width = "256px";
+	
+}
+
+function small(y)
+{
+	y.style.height = "128px";
+	y.style.width = "128px";
+	
+}
+
+</script>
+
+
+</body>
+</html>

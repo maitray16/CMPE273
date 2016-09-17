@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Errors</title>
+</head>
+<body>
+
+<h3>Example of errors in Javascript</h3>
+<p>Use of try and catch</p>
+<p id="error_display1"></p>
+
+Enter your phone number - <input type="text" id="user_entry">
+<button onclick="check()"> GO </button>
+<p id="error_display2"></p>
+
+<script>
+try
+{
+  sayHi();
+}
+catch(error)
+{
+	document.getElementById("error_display1").innerHTML = "<b>Error caught - </b>" + error.message;
+}
+
+function check()
+{
+	try
+	{
+		var len; 
+		len = document.getElementById("user_entry").value;
+		if(len.length > 10) throw "Incorrect number";
+		if(len.length < 10) throw "Incorrect number";	
+	}
+	catch(error)
+	{
+		document.getElementById("error_display2").innerHTML = error;
+	}
+	
+	
+}
+
+</script>
+</body>
+</html>

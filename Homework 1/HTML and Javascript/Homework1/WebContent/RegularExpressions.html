@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Regular Expressions</title>
+</head>
+<body>
+
+<h3>To find the number of occurrences of a particular string</h3>
+
+<p id="main_data"><b>DATA</b> <br>Read a book with meaning, something that explores questions of the mind, heart, and soul.<br> For this exercise, you will want content you can mentally wrestle with for hours without getting bored.</p>
+
+<br>
+
+Enter the word to find its occurrences : <input type="text" id="input">
+<button onclick="find()">GO</button>
+<br>
+<h3 id="result"></h3>
+Enter the word you would like to replace : <input type="text" id="replace">
+<button onclick="replace()">GO</button>
+<h3 id="replace_result"></h3>
+<br>
+
+
+<script>
+function find()
+{
+	var data = "Read a book with meaning, something that explores questions of the mind, heart, and soul. For this exercise, you will want content you can mentally wrestle with for hours without getting bored.";
+	var data_entered = document.getElementById("input").value;
+	var pattern = new RegExp(data_entered,"g");
+	var res = data.match(pattern);
+	document.getElementById("result").innerHTML = res;
+}
+
+function replace()
+{
+	var data = "Read a book with meaning, something that explores questions of the mind, heart, and soul. For this exercise, you will want content you can mentally wrestle with for hours without getting bored.";
+	var data_to_replace = document.getElementById("replace").value;
+	var rep_pattern = new RegExp(data_to_replace,"g");
+	var res = data.replace(rep_pattern,"WOW");
+	document.getElementById("replace_result").innerHTML = res;
+}
+</script>
+</body>
+</html>

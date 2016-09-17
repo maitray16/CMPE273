@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript JSON </title>
+</head>
+<body>
+
+<h3>Below is a sample data set </h3>
+<p id="sample_data">
+{
+			"batter":
+				[
+					{ "id": "1001", "type": "Regular" },
+					{ "id": "1002", "type": "Chocolate" },
+					{ "id": "1003", "type": "Blueberry" },
+					{ "id": "1004", "type": "Devil's Food" }
+				]
+}
+</p>
+
+Enter the item number you want to see (0-3) : <input type="text" id="user_entry">
+<br>
+<button onclick = "find()">	FIND </button> 
+<p id="result"></p>
+
+
+<script>
+
+function find()
+{
+	var text = '{"batter":['+
+					'{ "id": "1001", "type": "Regular" },'+
+					'{ "id": "1002", "type": "Chocolate" },'+
+					'{ "id": "1003", "type": "Blueberry" },'+
+					'{ "id": "1004", "type": "Devils Food" }]}';
+	var entry;
+	
+	data = JSON.parse(text);
+	entry = document.getElementById("user_entry").value;
+	if(entry == 0)
+	{
+	document.getElementById("result").innerHTML = data.batter[0].id + " " + data.batter[0].type;
+	}
+	else if(entry == 1)
+		{
+		document.getElementById("result").innerHTML = data.batter[1].id + " " + data.batter[1].type;
+		}
+	else if(entry == 2)
+	{
+	document.getElementById("result").innerHTML = data.batter[2].id + " " + data.batter[2].type;
+	}
+	else if(entry == 3)
+	{
+	document.getElementById("result").innerHTML = data.batter[3].id + " " + data.batter[3].type;
+	}
+	else 
+	{
+	document.getElementById("result").innerHTML = "Sorry no more data";
+	}
+}
+
+</script>
+
+</body>
+</html>

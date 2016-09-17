@@ -1,0 +1,68 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="UTF-8">
+<!-- Variable example to perform conversion operations  --> 
+<title>Javascript Variables</title>  
+</head> 
+ 
+<body>  
+  
+<p>//<i>Variables can be used to perform arithmetic operations</i></p>  
+Enter your value : <input type='text' id="user_value"> 
+<br>
+<br>
+<form>  
+    <select id="main_menu" size="3">  
+        <option value="1"> Gallons to Liters </option>  
+        <option value="2"> Fahrenheit to Celsius </option>  
+        <option value="3"> Miles to Kilometers </option>      
+    </select>  
+</form>  
+<p Click on the option that you want></p> 
+ 
+<button onclick="handle_menu_selection()">GO</button> 
+ 
+<p id="answer_text"></p>  
+  
+<script>  
+  
+function handle_menu_selection()  
+{     
+    var value_entered = document.getElementById("user_value").value;  
+    var option_selected = document.getElementById("main_menu").value;  
+    if(option_selected === "1")  
+        {  
+            gallons_to_liters(value_entered);  
+        }  
+    if(option_selected === "2")  
+        {  
+            faren_to_celsius(value_entered);  
+        }  
+    if(option_selected === "3")  
+        {  
+            miles_to_km(value_entered);  
+        }  
+}  
+  
+function gallons_to_liters(data)  
+{  
+    var lit = data*3.785411;  
+    document.getElementById("answer_text").innerHTML = lit + " Liters";  
+}  
+  
+function faren_to_celsius(data)  
+{  
+    var celc = (data-32)*0.555556;  
+    document.getElementById("answer_text").innerHTML = celc + " Celsius";  
+}  
+  
+function miles_to_km(data)  
+{  
+    var kms = data*1.60934;  
+    document.getElementById("answer_text").innerHTML = kms + " Kilometers";  
+}  
+  
+</script>  
+</body>  
+</html>  

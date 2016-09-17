@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Local Storage</title>
+</head>
+<body>
+<p>//<i>Local Storage is used for storing values on the client side.</i></p>
+<h4>SANDWICH CREATER</h4>
+
+<form>
+	<p>Choose Bread</p>
+	<select id="bread_menu" size="2">
+		<option value="1">Honey Oat</option>	
+		<option value="2">Parmesan Oregano</option>	
+	</select>
+	
+	<p>Choose Vegetables</p>	
+	<input type="radio" id="lettuce">&nbsp Lettuce<br>
+	<input type="radio" id="tomatoes">&nbsp Tomatoes<br>
+	<input type="radio" id="onions">&nbsp Onions
+	
+	<p>Choose Sauces</p>
+	<input type="radio" id="south">&nbsp Southwest<br>
+	<input type="radio" id="chilli">&nbsp Chilli
+	
+</form>
+<br>
+<input type="radio" id="remember_me">&nbsp Remember my preference
+<br><br>
+<button onclick="go()">GO</button>	
+<button onclick="regular_sandwich()">GET MY REGULAR SANWICH</button>
+<p id = "pref"></p>
+<br>
+<p id="error"></p>
+
+<script>
+
+var final_user_choice = [];
+
+function go()
+{
+	// THIS FUNCTION COLLECTS ALL THE USER PREFERENCE
+	var user_bread_option = document.getElementById("bread_menu").value;	
+	
+	//BREAD
+	if(user_bread_option == "1")
+	{
+		final_user_choice.push(" Honey Oat Bread ");
+		
+	}
+	else
+	{
+		final_user_choice.push(" Parmesan Oregano Bread ");		
+	}
+	
+	//VEGETABLES
+	if(document.getElementById("lettuce").checked)
+	{
+		final_user_choice.push(" Lettuce ");		
+	}
+	if(document.getElementById("onions").checked)
+	{
+		final_user_choice.push(" Onions ");		
+	}
+	if(document.getElementById("tomatoes").checked)
+	{
+		final_user_choice.push(" Tomatoes ");	
+	}
+	
+	if(document.getElementById("south").checked)
+	{
+		final_user_choice.push(" Southwest Sauce ");	
+	}
+	if(document.getElementById("chilli").checked)
+	{
+		final_user_choice.push(" Chilli Sauce ");		
+	}
+	
+	//REMEMBER ME
+	if(document.getElementById("remember_me").checked)
+	{
+		store_data();
+		display_data();
+	}
+	else
+	{
+		display_data();
+	}
+}
+
+function display_data()
+{
+	//THIS METHOD DISPLAYS ALL THE USER CHOICES
+	document.getElementById("pref").innerHTML = 
+		"YOU CHOSE -  " + final_user_choice + "IS READY TO GO " ;
+}
+
+function store_data()
+{
+	if(typeof(Storage) !== "undefined")
+		{
+			localStorage.setItem("user_pref",final_user_choice);
+		}
+	else
+		{
+			document.getElementById("error").innerHTML
+			= "Sorry , your browser doesn't support storing information."
+		}
+}
+
+function regular_sandwich()
+{
+	if(localStorage.getItem("user_pref").length > 0)
+		{
+			final_user_choice = localStorage.getItem("user_pref");
+			display_data();
+		}
+	else
+	{
+		document.getElementById("error").innerHTML = "NO SANDWICH STORED"	
+	}
+	
+		
+}
+
+</script>
+</body>
+</html>

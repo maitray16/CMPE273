@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--  Calculating BMI and giving suggestions -->
+<title>Javascript Functions</title>
+</head>
+<body>
+
+<p>//<i>Functions are pieces of code that perform a particular task.</i></p>
+
+<p>BMI Calculator</p>
+
+Enter Weight(in Kilograms) : <input type="text" id="weight">
+<br>
+<br>
+Enter Height(in Meters) : <input type="text" id="height">
+
+<button onclick = "calculate()">CALCULATE</button>
+
+<p id="answer"></p>
+<p id="answer_info"></p>
+
+<script>
+function calculate()
+{
+	var x = document.getElementById("weight").value;
+	var y = document.getElementById("height").value;
+	var ans = x/(y*y);
+	document.getElementById("answer").innerHTML = ans;
+	
+	if(ans > 25)
+		{
+			document.getElementById("answer_info").innerHTML = "It is considered overweight";
+		}
+	if(ans < 18)
+	{
+		document.getElementById("answer_info").innerHTML = "It is considered underweight";
+	}
+
+}
+</script>
+</body>
+</html>

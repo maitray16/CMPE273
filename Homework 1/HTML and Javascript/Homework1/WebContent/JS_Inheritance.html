@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Inheritance</title>
+</head>
+<body>
+
+<h3>JavaScript Inheritance</h3>
+<p>Color is the super class and Red inherits color</p><br>
+<p id="result1"></p><br>
+<p id="result2"></p>
+<script>
+function Color()
+	{
+	  this.a = 0;
+	  this.b = 0;
+	}
+	
+	Color.prototype.move = function(a, b)
+	{
+	  this.a += a;
+	  this.b += b;
+	};
+
+	function Red() 
+	{
+	  Color.call(this); 
+	}
+
+	
+	Red.prototype = Object.create(Color.prototype);
+	Red.prototype.constructor = Red;
+	var red = new Red();
+	
+
+	var res1 =  red instanceof Red;
+	var res2 =  red instanceof Color;
+	
+	document.getElementById("result1").innerHTML = "Is red an instance of Red ? "+ res1;
+	document.getElementById("result2").innerHTML = "Is red an instance of Color ? "+ res2;
+
+</script>
+
+</body>
+</html>

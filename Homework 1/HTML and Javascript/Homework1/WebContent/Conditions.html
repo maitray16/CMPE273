@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Conditions</title>
+</head>
+<body>
+
+<p>//<i>Conditions are used to perform tasks based on different situations</i></p>
+<h3>Am I allowed to attend this class ?</h3>
+<form>
+	<fieldset>
+	<legend>Enter Information</legend>
+	
+	<p><i>Enter yes/no</i></p>
+	
+	Enter your full name &nbsp<input type="text" id="name"><br><br>
+	Are you enrolled in SE ? &nbsp<input type="text" id="major"><br><br>
+	Have you bought health insurance ? &nbsp<input type="text" id="insurance"><br><br>
+	Do you have any prerequisites ? &nbsp<input type="text" id="prereq"><br><br>
+	
+	<button type="button" onclick="check_result()">SUBMIT</button>
+
+	</fieldset>
+</form>
+
+<p id="status"></p>
+
+<script>
+
+function check_result()
+{
+	var major_var,insurance_var,prereq_var;
+	
+	major_var = document.getElementById("major").value;
+	insurance_var = document.getElementById("insurance").value;
+	prereq_var = document.getElementById("prereq").value;
+	
+	major_var = major_var.toLowerCase();
+	insurance_var = insurance_var.toLowerCase();
+	prereq_var = prereq_var.toLowerCase();
+	
+	var one_result = major_var.localeCompare("yes");
+	var two_result = insurance_var.localeCompare("yes");
+	var three_result = prereq_var.localeCompare("no");
+	
+	if( one_result == 0 && two_result == 0 && three_result == 0)
+		{
+			document.getElementById("status").innerHTML = "You are good to go.";
+		}
+	else
+		{
+			document.getElementById("status").innerHTML = "You cannot enroll.";
+		}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Strict Mode</title>
+</head>
+<body>
+<h3>STRICT MODE PROPERTIES</h3>
+
+<p>Click here to run in Strict Mode</p>
+<button onclick = "error1()">CLICK HERE</button>
+<p id="error_display1"></p>
+
+<p>Click here to run without Strict Mode</p>
+<button onclick = "error2()">CLICK HERE</button>
+<p id="error_display2"></p>
+
+<br>
+
+<script>
+function error1()
+{
+	    "use strict"
+	   try
+	    {
+		    var a , b;
+			a = 50;
+	  		b = 100;
+	  		c = a + b;   
+	    }
+	   catch(error)
+	    {
+		   document.getElementById("error_display1").innerHTML = error.message;
+	    }
+}
+
+function error2()
+{
+		    var a , b;
+			a = 50;
+	  		b = 100;
+	  		c = a + b;   
+	  		document.getElementById("error_display2").innerHTML = c;
+	   
+}
+
+
+	
+</script>
+</body>
+</html>
